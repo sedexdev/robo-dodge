@@ -6,7 +6,7 @@ pygame.mixer.pre_init(44100, 16, 2, 4096)
 pygame.init()                                                                    # initialises the pygame module
 
 DISPLAY_WIDTH = 1250
-DISPLAY_HEIGHT = 900
+DISPLAY_HEIGHT = 800
 
 black = (0, 0, 0)
 white = (255, 255, 255)                                                          # the RGB colour spectrum has 256 possible colours, white is the max of the RGB spectrum (excluding 0 which is black) (256 - 1 = 255)
