@@ -1,0 +1,10 @@
+# basic igonre file
+
+# dev env
+.vscode/
+
+# venv
+venv/
+
+# proprietary content
+assets/audio/theme.mp3
