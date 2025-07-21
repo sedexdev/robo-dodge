@@ -15,7 +15,7 @@ A simple block dodging game written in Python. Gets fast and out of control very
 Want a taste of what's in store? Check below!
 
 <video width="320" height="240" controls>
-    <source src="./assets/video/sample.mp4">
+    <source src="./assets/video/sample.mp4" type="video/mp4">
 </video>
 
 ## 📦 Installation
