@@ -12,9 +12,11 @@ A simple block dodging game written in Python. Gets fast and out of control very
 
 ## 🚀 Demo
 
-Want a taste of what's in store?
+Want a taste of what's in store? Check below!
 
-Check out the [Live Demo](https://github.com/sedexdev/robo-dodge/tree/master/assets/video/sample.webm)!
+<video width="320" height="240" controls>
+    <source src="./assets/video/sample.mp4">
+</video>
 
 ## 📦 Installation
 
