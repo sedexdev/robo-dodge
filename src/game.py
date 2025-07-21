@@ -141,7 +141,7 @@ class Game:
             self.handle_block_collision(player, sm_block, font, clock)
             self.handle_block_collision(player, block, font, clock)
 
-            pygame.display.update()
+            self.graphics.update_display()
             clock.tick(60)
 
     def handle_out(self, robot: Robot, graphics: Graphics, font: Font, clock: Clock) -> None:
@@ -162,7 +162,7 @@ class Game:
                 "OUT OF BOUNDS!",
                 ((graphics.width / 2), (graphics.height / 4))
             )
-            pygame.display.update()
+            self.graphics.update_display()
             time.sleep(0.5)
             self.game_loop(clock)
 
@@ -188,6 +188,8 @@ class Game:
             "DEAD!",
             ((self.graphics.width / 2), (self.graphics.height / 4))
         )
+        self.graphics.update_display()
+        time.sleep(0.5)
         self.game_loop(clock)
 
     def block_reset(self, block: Block, graphics: Graphics, dy: float) -> None:
