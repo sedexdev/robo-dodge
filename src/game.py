@@ -104,7 +104,7 @@ class Game:
         font = pygame.font.Font("freesansbold.ttf", 100)
 
         self.graphics.render_countdown(clock)
-        time.sleep(1)
+        time.sleep(0.2)
 
         game_exit = False
 

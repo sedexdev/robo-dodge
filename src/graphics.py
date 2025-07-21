@@ -5,6 +5,7 @@ Pygame graphics module
 # pylint: disable=line-too-long, too-few-public-methods, too-many-arguments, too-many-positional-arguments
 
 import sys
+import time
 
 from typing import Tuple
 
