@@ -25,7 +25,7 @@ class Robot:
         self.texture = pygame.image.load("./assets/imgs/robot.png")                                       
         self.w = self.texture.get_width()
         self.coords = coords
-        self.dtx = 0
+        self.dx = 0
         self.graphics = graphics
 
     def render(self) -> None:

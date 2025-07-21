@@ -104,14 +104,14 @@ class Game:
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
-                        player.dtx = -5
+                        player.dx = -5
                     if event.key == pygame.K_RIGHT:
-                        player.dtx = 5
+                        player.dx = 5
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                        player.dtx = 0
+                        player.dx = 0
 
-            player.coords = (player.coords[0] + player.dtx, player.coords[1])                                                                       
+            player.coords = (player.coords[0] + player.dx, player.coords[1])                                                                       
             self.graphics.display.fill(WHITE)
             sm_block.render()
             sm_block_x, sm_block_y = sm_block.coords 
