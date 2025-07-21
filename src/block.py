@@ -2,7 +2,9 @@
 Block class module
 """
 
-from typing import List, Tuple
+# pylint: disable=line-too-long, too-few-public-methods, too-many-arguments, too-many-positional-arguments
+
+from typing import Tuple
 
 import pygame
 
@@ -30,7 +32,7 @@ class Block:
         self.colour = colour
         self.speed = speed
         self.graphics = graphics
-        
+
     def render(self) -> None:
         """
         Renders the block

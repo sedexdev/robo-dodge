@@ -2,10 +2,15 @@
 Pygame graphics module
 """
 
-from typing import List, Tuple
+# pylint: disable=line-too-long, too-few-public-methods, too-many-arguments, too-many-positional-arguments
+
+import sys
+
+from typing import Tuple
 
 import pygame
 
+from pygame import USEREVENT, QUIT
 from pygame.font import Font
 from pygame.time import Clock
 
@@ -23,14 +28,14 @@ class Graphics:
         """
         self.width = 1250
         self.height = 800
-        self.display = pygame.display.set_mode((self.width, self.height))                                                    
+        self.display = pygame.display.set_mode((self.width, self.height))
         self.theme_texture = pygame.image.load("./assets/imgs/theme.jpg")
 
     def initialise(self) -> None:
         """
         Initialise game UI
         """
-        pygame.display.set_caption("Robo-Dodge")
+        pygame.display.set_caption("RoboDodge")
 
     def draw_rect(self, colour: Tuple, values: Tuple) -> None:
         """
@@ -55,8 +60,8 @@ class Graphics:
         """
         surface = font.render(text, True, DRK_GREY)
         rect = surface.get_rect()
-        rect.center = (coords)                
-        self.display.blit(surface, rect)  
+        rect.center = coords
+        self.display.blit(surface, rect)
 
     def render_score(self, score: int) -> None:
         """
@@ -65,8 +70,8 @@ class Graphics:
         Args:
             score (int): current score
         """
-        font = pygame.font.SysFont(None, 45)                                         
-        text = font.render("Dodged: " + str(score), True, BLACK)                     
+        font = pygame.font.SysFont(None, 45)
+        text = font.render("Dodged: " + str(score), True, BLACK)
         self.display.blit(text, (0, 0))
 
     def render_theme(self, coords: Tuple) -> None:
@@ -84,7 +89,7 @@ class Graphics:
         """
         pygame.display.update()
 
-    def render_contdown(self, clock: Clock) -> None:
+    def render_countdown(self, clock: Clock) -> None:
         """
         Starts a counter at the beginning of the game and counts
         down to the starting loop
@@ -97,20 +102,18 @@ class Graphics:
 
         while not count:
             for event in pygame.event.get():
-                if event.type == pygame.USEREVENT:
+                if event.type == USEREVENT:
                     counter -= 1
                     text = str(counter).rjust(3) if counter > 0 else "GO!"
                     if text == "GO!":
                         count = True
-                if event.type == pygame.QUIT:
+                if event.type == QUIT:
                     pygame.quit()
-                    quit()
-            else:
-                self.display.fill(WHITE)
-                self.display.blit(font.render(text, True, BLACK), (350, 200))
-                self.update_display()
-                clock.tick(60)
-                continue
+                    sys.exit()
+            self.display.fill(WHITE)
+            self.display.blit(font.render(text, True, BLACK), (350, 200))
+            self.update_display()
+            clock.tick(60)
 
 
 class Button:
@@ -170,5 +173,8 @@ class Button:
         else:
             self.graphics.draw_rect(self.ac, (x, y, w, h))
         font = pygame.font.Font("freesansbold.ttf", 40)
-        self.graphics.render_font(font, self.text, ((x + (w / 2)), (y + (h / 2))))
-
+        self.graphics.render_font(
+            font,
+            self.text,
+            ((x + (w / 2)), (y + (h / 2)))
+        )

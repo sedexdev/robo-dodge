@@ -6,7 +6,7 @@ from typing import Tuple
 
 import pygame
 
-from src.graphics import Graphics 
+from src.graphics import Graphics
 
 
 class Robot:
@@ -22,8 +22,9 @@ class Robot:
             coords (Tuple): robot coordinates
             graphics (Graphics): Graphics instance
         """
-        self.texture = pygame.image.load("./assets/imgs/robot.png")                                       
+        self.texture = pygame.image.load("./assets/imgs/robot.png")
         self.w = self.texture.get_width()
+        self.h = self.texture.get_width()
         self.coords = coords
         self.dx = 0
         self.graphics = graphics

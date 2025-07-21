@@ -2,10 +2,10 @@
 Main game module
 """
 
+import pygame
+
 from src.graphics import Graphics
 from src.game import Game
-
-import pygame
 
 
 CLOCK = pygame.time.Clock()
