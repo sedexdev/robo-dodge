@@ -90,6 +90,7 @@ class Game:
         player = Robot((x, y), self.graphics)
         sm_block = Block((random.randrange(0, self.graphics.width), -400), (50, 50), BLUE, 4, self.graphics)
         block = Block((random.randrange(0, self.graphics.width), -600), (200, 200), BLACK, 4, self.graphics)
+        font = pygame.font.Font("freesansbold.ttf", 100)  
 
         self.graphics.render_contdown(clock)
         time.sleep(1)
@@ -114,15 +115,14 @@ class Game:
             self.graphics.display.fill(WHITE)
             sm_block.render()
             sm_block_x, sm_block_y = sm_block.coords 
-            sm_block_y += sm_block.speed
+            sm_block.coords = (sm_block_x, (sm_block_y + sm_block.speed))
             block.render()
             block_x, block_y = block.coords
-            block_y += block.speed                                         
+            block.coords = (block_x, (block_y + block.speed))  
             player.render()                                                                           
             self.graphics.render_score(self.score)
 
             if x > self.graphics.width - player.w or x < 0:
-                font = pygame.font.Font("freesansbold.ttf", 100)                                      
                 self.graphics.render_font(
                     font,
                     "OUT OF BOUNDS!",

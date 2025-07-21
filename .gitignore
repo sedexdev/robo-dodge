@@ -1,6 +1,7 @@
 # basic igonre file
 
 # dev env
+/**/__pycache__/
 .vscode/
 
 # venv
